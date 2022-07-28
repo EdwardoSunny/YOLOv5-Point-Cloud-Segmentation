@@ -3,8 +3,11 @@ import numpy as np
 
 from matplotlib import cm as plt
 
-pcd  = o3d.io.read_point_cloud('tennisball.ply')
-# o3d.visualization.draw_geometries([pcd])
+pcd  = o3d.io.read_point_cloud('redtube.ply')
+cl, ind = pcd.remove_statistical_outlier(nb_neighbors=20, std_ratio=0.6)
+# cl, ind = pcd.remove_radius_outlier(nb_points=16, radius=1)
+o3d.visualization.draw_geometries([cl])
+pcd = cl
 
 with o3d.utility.VerbosityContextManager(
         o3d.utility.VerbosityLevel.Debug) as cm:
@@ -14,7 +17,7 @@ with o3d.utility.VerbosityContextManager(
 # zero baesd labels
 
 max_label = labels.max()
-print(max_label)
+# remove clusters with barely any points --> end up with 2 clusters one table one object. then easy
 cluster_closest_idx = np.where(labels == 3)[0].tolist()
 pcd_cut = pcd.select_by_index(cluster_closest_idx)
 

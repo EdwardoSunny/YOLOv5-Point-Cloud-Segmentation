@@ -30,7 +30,7 @@ if __name__ == '__main__':
     print(type(sub.result_pt_cloud))
     o3d_point_cloud = o3d.geometry.PointCloud()
     o3d_point_cloud.points = o3d.utility.Vector3dVector(sub.result_pt_cloud.astype(np.float64))
-    o3d.io.write_point_cloud('tennisball.ply', o3d_point_cloud)
+    o3d.io.write_point_cloud('redtube.ply', o3d_point_cloud)
     o3d.visualization.draw_geometries([o3d_point_cloud])
 
 
