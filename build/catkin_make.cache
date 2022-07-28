@@ -1,0 +1,2 @@
+test:yolov5_segment
+-DCATKIN_DEVEL_PREFIX=/home/edward/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/edward/catkin_ws/install -G Unix Makefiles

@@ -1,0 +1,8 @@
+prefix=/home/edward/catkin_ws/install
+
+Name: yolov5_segment
+Description: Description of yolov5_segment
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
