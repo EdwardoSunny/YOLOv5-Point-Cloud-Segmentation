@@ -76,7 +76,7 @@ class real_sense_sub:
                 result = rs.rs2_deproject_pixel_to_point(self._intrinsics, [x, y], self.depth_data[y][x])
                 final_result_xyz.append(result)
 
-        self.result_pt_cloud = np.array(final_result_xyz)
+        self.result_pt_cloud = np.multiply(np.array(final_result_xyz), 1/1000)
     
     
 
